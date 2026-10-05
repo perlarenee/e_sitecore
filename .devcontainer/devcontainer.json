@@ -14,5 +14,6 @@
     "vscode": {
       "extensions": ["anthropic.claude-code"]
     }
-  }
+  },
+  "postCreateCommand": "cd app && npm ci"
 }
