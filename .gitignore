@@ -1,0 +1,14 @@
+# Dependencies, anywhere in the repo
+node_modules/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+app/scjssconfig.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
