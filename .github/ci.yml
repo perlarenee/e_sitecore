@@ -1,0 +1,52 @@
+name: CI
+
+on: 
+  pull_request:
+    push:
+      branches: [main]
+
+#least privilege: can read repo and nothing else
+permissions:
+  contents: read
+
+jobs:
+  app:
+    name: Lint and build app
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+          cache-dependency-path: app/package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Production build
+        run: npm run build
+
+      - name: Audit dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+dockerfile:
+  name: Lint dev container Dockerfile
+  runs-on: ubuntu-latest
+  steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Hadolint Dockerfile
+      uses: hadolint/hadolint-action@v3.1.0
+      with:
+        dockerfile: .devcontainer/Dockerfile

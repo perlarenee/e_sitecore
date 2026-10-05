@@ -1,0 +1,16 @@
+{
+  "outputStyle": "Learning",
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run build)",
+      "Bash(git status)",
+      "Bash(git diff:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./app/scjssconfig.json)"
+    ]
+  }
+}
