@@ -1,4 +1,4 @@
-FROM node:24-bookworm-slim
+FROM node:25-bookworm-slim
 
 # Tools the dev environment needs that the slim image leaves out
 RUN apt-get update \
