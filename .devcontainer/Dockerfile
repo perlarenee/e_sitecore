@@ -1,6 +1,8 @@
 FROM node:24-bookworm-slim
 
 # Tools the dev environment needs that the slim image leaves out
+# Base image is pinned; apt package versions float so security patches apply on rebuild.
+# hadolint ignore=DL3008
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git ca-certificates less procps \
  && rm -rf /var/lib/apt/lists/*

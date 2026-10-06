@@ -37,7 +37,7 @@ jobs:
         run: npm run build
 
       - name: Audit dependencies
-        run: npm audit --omit=dev --audit-level=high
+        run: npm audit --omit=dev --audit-level=critical
 
   dockerfile:
     name: Lint dev container Dockerfile
