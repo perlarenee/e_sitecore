@@ -39,14 +39,14 @@ jobs:
       - name: Audit dependencies
         run: npm audit --omit=dev --audit-level=high
 
-dockerfile:
-  name: Lint dev container Dockerfile
-  runs-on: ubuntu-latest
-  steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+  dockerfile:
+    name: Lint dev container Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Hadolint Dockerfile
-      uses: hadolint/hadolint-action@v3.1.0
-      with:
-        dockerfile: .devcontainer/Dockerfile
+      - name: Hadolint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: .devcontainer/Dockerfile
