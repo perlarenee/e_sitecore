@@ -20,6 +20,21 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
+    - componentName: Hero
+      fields:
+        heading: This is a Heading
+        content: |
+          <p>This goes in the content block<br />
+          with a subline</p>
+        background: 
+          src: /data/media/img/background-sample.jpg
+          alt: Background Image with Gradient
+        cta: 
+          href: https://www.sitecore.com
+          text: CTA Link Goes Here
+          target: _blank
+          title: Example Link
+
     - componentName: ContentBlock
       fields:
         heading: Welcome to Sitecore JSS

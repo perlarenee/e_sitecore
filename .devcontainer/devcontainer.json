@@ -12,7 +12,10 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["anthropic.claude-code"]
+      "extensions": ["anthropic.claude-code"],
+       "settings": {
+         "files.eol": "\n"
+       }
     }
   },
   "postCreateCommand": "cd app && npm ci"
